@@ -1,0 +1,19 @@
+<h1>{{title}}</h1>
+<h2>My Heroes</h2>
+
+<form #signupForm="ngForm" (ngSubmit)="registerUser(signupForm)">
+  <label for="name">Name</label>
+  <input type="text" name="name" id="name" ngModel>
+
+  <button type="submit">Sign Up</button>
+</form>
+
+<ul class="heroes">
+    <li *ngFor="let hero of heroes" (click)="onSelect(hero)">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </li>
+</ul>
+<h2>{{selectedHero.name}} details!</h2>
+<div><label>id: </label>{{selectedHero.id}}</div>
+
+<hero-detail [selectedHero]=selectedHero></hero-detail>
